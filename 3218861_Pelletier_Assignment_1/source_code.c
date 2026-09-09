@@ -7,7 +7,7 @@
 // Description: C program that picks a secret number between 1 and 10. The user gets up to 3 tries to guess the number.
 // Inputs: Number between 1 and 10 up to three times
 // Outputs: Feedback on whether the guess is too high, too low, or correct
-// Revisions: Completion of code
+// Revisions: Added edgecase handling for invalid input and out of range numbers. Added comments to explain the code.
 
 #include <stdio.h> // include the standard input/output library
 
