@@ -14,15 +14,15 @@
 int main() { // main function where the program starts execution
     int secret = 7; // fixed secret number
     int guess;  // variable to store the user's guess
-    int attempts = 3; // number of attempts allowed
+    int max_attempts = 3; // number of attempts allowed
     int status; // temporary variable to store the return value of scanf
 
     printf("Guess a number between 1 and 10:\n"); // prompt user to guess a number
 
     // Loop for the number of attempts allowed. Authored by Copilot.
-    for (int i = 1; i <= attempts; i++) { // loop through the number of attempts
-        printf("Attempt %d/%d. Enter your guess: ", i, attempts); // prompt user for their guess
-        
+    for (int attempt = 1; attempt <= max_attempts; attempt++) { // loop through the number of attempts
+        printf("Attempt %d/%d. Enter your guess: ", attempt, max_attempts); // prompt user for their guess
+
         // A while loop to make sure the user inputs a integer. Adapted from a Gemini code example.
         while (1) { //loops until valid input is received (1=True in c)
             status = scanf("%d", &guess); // stores user input in guess varible and status becomes true or false based off success.
@@ -31,14 +31,14 @@ int main() { // main function where the program starts execution
             } else { // if the input is invalid (0=False in c). Will be false if the user inputs a letter or symbol.
                 printf("Invalid input. Please enter a number.\n"); // informs user they entered an invalid input
                 while (getchar() != '\n'); // Clear the input buffer
-                printf("Attempt %d/%d. Enter your guess: ", i, attempts); // prompt user for their guess again
+                printf("Attempt %d/%d. Enter your guess: ", attempt, max_attempts); // prompt user for their guess again
             } // if the input is valid, continue with the game
         } // end of while loop for input validation
 
         // Check if the guess is within the valid range. Authored by me with help from Gemini and Copilot.
         if (guess < 1 || guess > 10) {  // Enter if statment if the guess is not in valid range.
             printf("Please enter a number between 1 and 10.\n"); // informs user they entered an invalid number.
-            i--; // Deletes the attempt number added so it doesn't count as attempt.
+            attempt--; // Deletes the attempt number added so it doesn't count as attempt.
             continue; // skips the rest of the loop and goes to the next iteration
         } // if the guess is valid, continue with the game
 
@@ -51,7 +51,7 @@ int main() { // main function where the program starts execution
             printf("Too low! "); // informs user their guess is too low
         } else { // if the guess is greater than the secret number
             printf("Too high! "); // informs user their guess is too high
-        } if (i != attempts) { // if the user has not used all their attempts
+        } if (attempt != max_attempts) { // if the user has not used all their attempts
             printf("Try again.\n"); // prompts user to try again
         } // end of if statment
     } // ends and exits loop if the user has used all their attempts without guessing the secret number
